@@ -6,8 +6,8 @@ export default function TodoSubmitForm({ addTodo }) {
     event.preventDefault();
     const data = new FormData(event.target);
     const todo = Object.fromEntries(data);
+    // todo.isCompleted = true;
     addTodo(todo);
-    console.log("todo", todo);
   };
 
   return (

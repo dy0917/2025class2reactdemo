@@ -5,12 +5,6 @@ import TodoSubmitForm from "./Components/TodoSubmitForm";
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const loadWeather = async () => {
-    const response = await fetch("api/weather/auckland");
-    const result = await response.json();
-    console.log(result);
-  };
-  loadWeather();
   const addTodo = (todo) => {
     const currentMaxId =
       todos.length == 0 ? 0 : Math.max(...todos.map((todo) => todo.id));
@@ -26,12 +20,23 @@ function App() {
     copiedTodos.splice(index, 1);
     setTodos(copiedTodos);
   };
+
+  const updateTodo = (index, todo) => {
+    const copiedTodos = [...todos];
+    copiedTodos.splice(index, 1, todo);
+    setTodos(copiedTodos);
+  };
+
   return (
     <>
       <div className="container">
         <div className="row">
           <TodoSubmitForm addTodo={addTodo} />
-          <TodoList todoList={todos} removeTodo={removeTodo}></TodoList>
+          <TodoList
+            todoList={todos}
+            removeTodo={removeTodo}
+            updateTodo={updateTodo}
+          ></TodoList>
         </div>
       </div>
     </>
