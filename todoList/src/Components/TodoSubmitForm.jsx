@@ -1,15 +1,19 @@
 import { useState } from "react";
 
 export default function TodoSubmitForm({ addTodo }) {
-  const [originFormData, setOriginFormData] = useState({});
+  const [originFormData, setOriginFormData] = useState({ title: "", desc: "" });
   const todoSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
     const todo = Object.fromEntries(data);
-    // todo.isCompleted = true;
-    addTodo(todo);
+    addTodo(originFormData);
+    setOriginFormData({ title: "", desc: "" });
   };
 
+  const updateFormData = (incomingData) => {
+    const updateFormData = { ...originFormData, ...incomingData }; //title| desc
+    setOriginFormData(updateFormData);
+  };
   return (
     <form onSubmit={todoSubmit}>
       <div className="mb-3">
@@ -18,8 +22,11 @@ export default function TodoSubmitForm({ addTodo }) {
         </label>
         <input
           type="text"
-          defaultValue={originFormData.title}
+          value={originFormData.title}
           name="title"
+          onChange={(e) => {
+            updateFormData({ title: e.target.value });
+          }}
           className="form-control"
         />
       </div>
@@ -30,7 +37,10 @@ export default function TodoSubmitForm({ addTodo }) {
         <input
           type="text"
           name="desc"
-          defaultValue={originFormData.desc}
+          value={originFormData.desc}
+          onChange={(e) => {
+            updateFormData({ desc: e.target.value });
+          }}
           className="form-control"
         />
       </div>

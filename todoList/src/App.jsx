@@ -8,7 +8,6 @@ function App() {
   const addTodo = (todo) => {
     const currentMaxId =
       todos.length == 0 ? 0 : Math.max(...todos.map((todo) => todo.id));
-
     const newTodo = { ...todo, id: currentMaxId + 1 };
     const copiedTodos = [...todos];
     copiedTodos.push(newTodo);

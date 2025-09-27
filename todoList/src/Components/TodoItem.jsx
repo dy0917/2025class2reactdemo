@@ -1,4 +1,5 @@
 export default function TodoItem({ todo, index, removeTodo, updateTodo }) {
+  
   const textDecorationStyle = {
     textDecoration: todo.isCompleted ? "line-through" : "",
   };
