@@ -4,6 +4,7 @@ import TodoSubmitForm from "./Components/TodoSubmitForm";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  // const [props, aFunction] = useInput();
 
   const addTodo = (todo) => {
     const currentMaxId =
