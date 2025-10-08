@@ -4,7 +4,6 @@ export default function City({
   country = "Australia",
   children,
 }) {
-  // destructuring the props.children property as well
   return (
     <>
       {children}

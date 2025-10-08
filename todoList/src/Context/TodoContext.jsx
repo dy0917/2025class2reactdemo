@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-// 1. Create the context
+
 export const TodoContext = createContext();
 
 export const TodoProvider = (props) => {
