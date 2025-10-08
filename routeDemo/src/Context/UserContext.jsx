@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { useState } from "react";
 // 1. Create the context
 export const UserContext = React.createContext();
 // Custom provider component for this context.
