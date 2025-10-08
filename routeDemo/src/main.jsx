@@ -1,7 +1,9 @@
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import AppRoute from "./Route";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from './AppRoutes'
 
 createRoot(document.getElementById("root")).render(
-    <AppRoute />
+  <BrowserRouter>
+    <AppRoutes />
+  </BrowserRouter>
 );
