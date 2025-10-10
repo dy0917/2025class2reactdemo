@@ -12,16 +12,30 @@ import {
 
 export default function MUIForm() {
   const [age, setAge] = useState(10);
+  const [greeting, setGreeting] = useState("Hello World");
+  const [checkMe, setCheckMe] = useState(false);
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    console.log("formSubmit");
+    console.log("age", age);
+    console.log("greeting", greeting);
+    console.log("checkMe", checkMe);
+  };
+
   return (
-    <form>
+    <form onSubmit={formSubmit}>
       <TextField
         required
         id="outlined-required"
         label="Greeting"
-        defaultValue="Hello World"
+        value={greeting}
+        onChange={(e) => setGreeting(e.target.value)}
       />
       <FormControlLabel
-        control={<Checkbox defaultChecked />}
+        control={
+          <Checkbox value={checkMe} onClick={() => setCheckMe(!checkMe)} />
+        }
         label="Uncheck Me"
       />
       <FormControl>
