@@ -7,6 +7,8 @@ import MUIForm from "../Components/MUIForm";
 
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
+import SxExample from "../Components/SxExample";
+import { StyledBox, StyledDiv } from "../Components/BasicUsage";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -36,10 +38,10 @@ export default function Login() {
           <CustomCard title="First Column">First column is wider</CustomCard>
         </Grid>
         <Grid item xs={2}>
-          middle item
+          <SxExample></SxExample>
         </Grid>
         <Grid item xs={2}>
-          middle item
+          <StyledBox>this is a style box</StyledBox>
         </Grid>
         <Grid item xs={4}>
           <CustomCard title="Last Column">Last column is wider</CustomCard>

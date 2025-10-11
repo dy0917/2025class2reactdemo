@@ -7,10 +7,9 @@ export const UserProvider = (props) => {
   // store the current user in state at the top level
   const [currentUser, setCurrentUser] = useState({});
   // const [state, dispatch] = useReducer()
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const toggleOpen = () => {
-    console.log("open", open);
     setOpen(!open);
   };
   // sets user object in state, shared via context
