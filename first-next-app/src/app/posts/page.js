@@ -33,7 +33,7 @@ export default async function Page({ searchParams }) {
     <div className="About">
       <h1>Posts</h1>
       <ul>{postList}</ul>
-      <PostsLimit defaultLimit={limit} />
+      <PostsLimit defaultLimit={limitValue} />
     </div>
   );
 }
