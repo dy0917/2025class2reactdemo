@@ -7,7 +7,12 @@ export const UserProvider = (props) => {
   // store the current user in state at the top level
   const [currentUser, setCurrentUser] = useState({});
   // const [state, dispatch] = useReducer()
+  const [open, setOpen] = React.useState(false);
 
+  const toggleOpen = () => {
+    console.log("open", open);
+    setOpen(!open);
+  };
   // sets user object in state, shared via context
   const handleUpdateUser = (user) => {
     setCurrentUser(user);
@@ -17,7 +22,9 @@ export const UserProvider = (props) => {
   // sends data via its value prop to all children at every level.
   // We are sending both the current user and an update function
   return (
-    <UserContext.Provider value={{ currentUser, handleUpdateUser }}>
+    <UserContext.Provider
+      value={{ currentUser, handleUpdateUser, open, toggleOpen }}
+    >
       {props.children}
     </UserContext.Provider>
   );

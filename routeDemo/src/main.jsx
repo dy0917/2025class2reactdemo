@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./AppRoutes";
 import { UserProvider } from "./Context/UserContext";
 import NavBar from "./Components/NavBar";
+import MUIDialog from "./Components/MUIDialog";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
@@ -11,5 +12,6 @@ createRoot(document.getElementById("root")).render(
       <NavBar></NavBar>
       <AppRoutes />
     </BrowserRouter>
+    <MUIDialog text={"My first dialog"}></MUIDialog>
   </UserProvider>
 );

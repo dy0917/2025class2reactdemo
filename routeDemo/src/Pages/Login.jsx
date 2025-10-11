@@ -1,9 +1,12 @@
 import { useNavigate, Outlet } from "react-router-dom";
 import SubscribeForm from "../Components/SubcribeForm";
 import CustomCard from "../Components/CustomCard";
-import { Grid, Box, Paper } from "@mui/material";
+import { Grid, Box, Paper, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import MUIForm from "../Components/MUIForm";
+
+import { useContext } from "react";
+import { UserContext } from "../Context/UserContext";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -17,6 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Login() {
+  const { toggleOpen } = useContext(UserContext);
   return (
     <div className="Homepage">
       <SubscribeForm></SubscribeForm>
@@ -41,6 +45,10 @@ export default function Login() {
           <CustomCard title="Last Column">Last column is wider</CustomCard>
         </Grid>
       </Grid>
-    </div> // 12
+
+      <Button variant="outlined" onClick={toggleOpen}>
+        Open Dialog
+      </Button>
+    </div>
   );
 }
