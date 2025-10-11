@@ -14,11 +14,12 @@ function NavBar() {
         {/* Next.js Link components use href instead of to prop
          */}
         <li>
+          {/* Navlink Link */}
           <Link href="/">Home</Link>
         </li>
         <li>
           <Link
-            href="/dash"
+            href="/dashboard"
             className={path.startsWith("/dash") ? "active" : null}
           >
             Dashboard
@@ -30,6 +31,14 @@ function NavBar() {
             className={path.startsWith("/about") ? "active" : null}
           >
             About
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/posts"
+            className={path.startsWith("/posts") ? "active" : null}
+          >
+            Posts
           </Link>
         </li>
       </ul>
