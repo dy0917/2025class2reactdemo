@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 const styles = {
   color: "darkslategray",
-  backgroundColor: "yellow",
   padding: "2em",
   borderRadius: "1em",
   border: "1px solid darkslategray",

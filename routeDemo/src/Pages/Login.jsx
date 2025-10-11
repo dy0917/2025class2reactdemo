@@ -41,7 +41,7 @@ export default function Login() {
           <SxExample></SxExample>
         </Grid>
         <Grid item xs={2}>
-          <StyledBox>this is a style box</StyledBox>
+          <StyledBox className="styledBoxClass">this is a style box</StyledBox>
         </Grid>
         <Grid item xs={4}>
           <CustomCard title="Last Column">Last column is wider</CustomCard>
