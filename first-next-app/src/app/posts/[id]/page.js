@@ -13,8 +13,8 @@ async function getPostData(id) {
 }
 // Uses params prop to get value of [id] from path segment
 export default async function Post({ params }) {
-  // so for /posts/3/, params will be { id:3 }
-  const post = await getPostData(params.id);
+  const { id } = await params;
+  const post = await getPostData(id);
   return (
     <>
       <div className="post">

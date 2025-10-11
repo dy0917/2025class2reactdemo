@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PostsLimit from "@/components/PostLimit";
 
 async function getPostsData(limit, page = 1) {
   const res = await fetch(
@@ -16,9 +17,10 @@ async function getPostsData(limit, page = 1) {
   return res.json();
 }
 
-export default async function Page() {
-  const posts = await getPostsData(5);
-  console.log("posts", posts);
+export default async function Page({ searchParams }) {
+  const { limit } = await searchParams;
+  const limitValue = limit ? limit : 5;
+  const posts = await getPostsData(limitValue);
   const postList = posts.map((post) => (
     <li key={post.id}>
       <Link href={"/posts/" + post.id}>
@@ -31,6 +33,7 @@ export default async function Page() {
     <div className="About">
       <h1>Posts</h1>
       <ul>{postList}</ul>
+      <PostsLimit defaultLimit={limit} />
     </div>
   );
 }
